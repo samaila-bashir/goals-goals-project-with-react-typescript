@@ -3,6 +3,7 @@ import goalsImg from './assets/goals.jpg';
 import { useState } from 'react';
 import CourseGoalList from './components/CourseGoalList';
 import { ICourseGoalList } from './utils/types';
+import NewGoalForm from './components/NewGoalForm';
 
 const App = (): JSX.Element => {
   const [goals, setGoals] = useState<ICourseGoalList[]>([]);
@@ -12,12 +13,12 @@ const App = (): JSX.Element => {
     alt: 'A list of goals',
   };
 
-  const handleAddGoal = () => {
+  const handleAddGoal = (goal: string, summary: string) => {
     setGoals((prevGoals) => {
       const newGoal: ICourseGoalList = {
         id: Math.random(),
-        title: 'Learn React + TS ' + Math.floor(Math.random() * 100) + 1,
-        description: 'Learn it in depth.',
+        title: goal,
+        description: summary,
       };
 
       return [...prevGoals, newGoal];
@@ -36,7 +37,7 @@ const App = (): JSX.Element => {
       <Header image={image}>
         <h1>Your Course Goals</h1>
       </Header>
-      <button onClick={handleAddGoal}>Add Goal</button>
+      <NewGoalForm onAddGoal={handleAddGoal} />
       <CourseGoalList goals={goals} onDelete={handleDeleteGoal} />
     </main>
   );

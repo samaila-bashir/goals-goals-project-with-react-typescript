@@ -1,5 +1,9 @@
 import { type ReactNode } from 'react';
 
+export interface INewGoal {
+  onAddGoal: (goal: string, summary: string) => void;
+}
+
 export interface ICourseGoal {
   id: number;
   title: string;
