@@ -1,16 +1,6 @@
-import { type ReactNode } from 'react';
+import { IHeader } from '../utils/types';
 
-interface ImageProps {
-  src: string;
-  alt: string;
-}
-
-interface HeaderProps {
-  image: ImageProps;
-  children: ReactNode;
-}
-
-const Header: React.FC<HeaderProps> = ({ image, children }) => {
+const Header: React.FC<IHeader> = ({ image, children }): JSX.Element => {
   return (
     <header>
       <img {...image} />

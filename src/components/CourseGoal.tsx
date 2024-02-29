@@ -1,18 +1,18 @@
-import { ReactNode } from 'react';
+import { ICourseGoal } from '../utils/types';
 
-interface CourseGoalProps {
-  title: string;
-  children: ReactNode;
-}
-
-const CourseGoal = ({ title, children }: CourseGoalProps) => {
+const CourseGoal: React.FC<ICourseGoal> = ({
+  id,
+  title,
+  children,
+  onDelete,
+}): JSX.Element => {
   return (
     <article>
       <div>
         <h2>Title: {title}</h2>
         {children}
       </div>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </article>
   );
 };
