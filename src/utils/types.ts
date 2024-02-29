@@ -31,3 +31,8 @@ export interface IHeader {
   image: IImage;
   children: ReactNode;
 }
+
+export interface IInfoBox {
+  mode: 'hint' | 'warning';
+  children: ReactNode;
+}
