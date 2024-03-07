@@ -19,7 +19,7 @@ const CourseGoalList: React.FC<ICourseGoalListProps> = ({
 
   if (goals.length >= 4) {
     warningBox = (
-      <InfoBox mode="warning">
+      <InfoBox mode="warning" severity="medium">
         You are collecting a lot of goals. Don't put too much on your plate.
       </InfoBox>
     );

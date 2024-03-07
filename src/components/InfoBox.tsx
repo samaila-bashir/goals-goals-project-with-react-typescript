@@ -1,6 +1,8 @@
-import { IInfoBox } from '../utils/types';
+import { InfoBoxProps } from '../utils/types';
 
-const InfoBox: React.FC<IInfoBox> = ({ mode, children }): JSX.Element => {
+const InfoBox: React.FC<InfoBoxProps> = (props): JSX.Element => {
+  const { children, mode } = props;
+
   if (mode === 'hint') {
     return (
       <aside className="infobox infobox-hint">
@@ -9,8 +11,10 @@ const InfoBox: React.FC<IInfoBox> = ({ mode, children }): JSX.Element => {
     );
   }
 
+  const { severity } = props;
+
   return (
-    <aside className="infobox infobox-warning warning--medium">
+    <aside className={`infobox infobox-warning warning--${severity}`}>
       <h2>Warning</h2>
       <p>{children}</p>
     </aside>

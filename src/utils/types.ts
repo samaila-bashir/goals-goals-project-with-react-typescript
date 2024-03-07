@@ -32,7 +32,15 @@ export interface IHeader {
   children: ReactNode;
 }
 
-export interface IInfoBox {
+export interface WarningBoxProps {
   mode: 'hint' | 'warning';
+  severity: 'low' | 'medium' | 'high';
   children: ReactNode;
 }
+
+export interface HintBoxProps {
+  mode: 'hint';
+  children: ReactNode;
+}
+
+export type InfoBoxProps = WarningBoxProps | HintBoxProps;
